@@ -170,9 +170,10 @@
           <p class="project-sub">CLI tool to explain Linux shell commands in plain English</p>
           <p class="project-stack">Python · Mar 2026</p>
           <ul>
-            <li>Command parser that segments flags, subcommands, and arguments</li>
-            <li>Multi-layer resolution: knowledge base, cache, man pages, tldr</li>
-            <li>Structured terminal output using the Rich library</li>
+            <li>Command parser that extracts commands, subcommands, flags and arguments. Also handles pipelines and redirects.</li>
+            <li>Multi-layer resolution: knowledge base (a python dictionary), cache, man pages, tldr</li>
+            <li>Added a caching layer using JSON files with 30-day TTL to avoid repeated man page parsing and network calls</li>
+            <li>Built the terminal output using the Rich library</li>
           </ul>
         </div>
 
@@ -186,9 +187,11 @@
           <p class="project-sub">Job listings scraper and daily digest emailer</p>
           <p class="project-stack">Python · Apr 2026</p>
           <ul>
-            <li>Scrapes listings from multiple sources, deduplicates results</li>
-            <li>Scores listings against resume keywords</li>
-            <li>Automated daily digest via GitHub Actions</li>
+            <li>Scraped listings from multiple sources via public REST APIs</li>
+            <li>Designed a keyword-matching scoring algorithm that ranks listings against resume keywords</li>
+            <li>Built a URL-based deduplication layer to filter repeat postings across sources</li>
+            <li>Automated a daily HTML email digest over SMTP, with HTML escaping to prevent XSS injection</li>
+            <li>Scheduled daily execution via GitHub Actions workflow</li>
           </ul>
         </div>
 
@@ -203,9 +206,10 @@
           <p class="project-sub">Browser-based P2P file transfer between two devices</p>
           <p class="project-stack">JavaScript · Node.js · WebRTC · Dec 2025</p>
           <ul>
-            <li>WebRTC P2P transfer with Node.js WebSocket signaling server</li>
-            <li>Chunked streaming with backpressure control for large files</li>
-            <li>SHA-256 password-protected rooms, QR code sharing, real-time speed display</li>
+            <li>Built a serverless P2P file transfer using WebRTC</li>
+            <li>Implemented a Node.js WebSocket signaling server for SDP/ICE exchange</li>
+            <li>Chunked streaming (64KB per chunk) with backpressure control for large files</li>
+            <li>SHA-256 password-protected rooms, QR-code based link sharing, real-time speed display</li>
           </ul>
         </div>
 
@@ -236,8 +240,8 @@
           <p class="project-sub">Single-cycle and pipelined RISC processor implementation</p>
           <p class="project-stack">Verilog · GTKWave · Sep 2025</p>
           <ul>
-            <li>Implemented program counter, instruction memory, register file, data memory</li>
-            <li>Built ALU and control unit from scratch</li>
+            <li>Implemented program counter, instruction memory, register file, data memory, ALU and control unit</li>
+            <li>Implemented five-stage pipelines processor with hazard control</li>
           </ul>
         </div>
 
@@ -284,12 +288,10 @@
               </div>
             </div>
             <ul>
-              <li>Studied and pre-processed existing ISCX network datasets</li>
-              <li>Multi-Controller placement optimization using K-Means++ and OPTICS algorithms</li>
-              <li>Identified dataset features relevant to network intrusion detection</li>
-              <li>Analyzed performance of various ML models and implemented the best-performing model for attack detection and mitigation</li>
-              <li>Reviewed literature on network migration; identified limitations in current approaches</li>
-              <li>Developed a game-theory model to observe migration patterns in a multi-operator network environment</li>
+              <li>Performed feature selection on ISCX network datasets to identify features relevant to DDoS detection and mitigation</li>
+              <li>Optimized multi-controller placement in an SDN environment using K-Means++ and OPTICS algorithms</li>
+              <li>Analyzed performance of six ML models on network traffic data comparing prediction time and accuracy</li>
+              <li>Developed a game-theoretic model to analyze 5G migration patterns in a multi-operator network environment</li>
             </ul>
           </div>
         </div>

@@ -37,7 +37,7 @@ const observer = new IntersectionObserver(entries => {
 sections.forEach(s => observer.observe(s));
 
 // Last updated date from GitHub API
-fetch('https://api.github.com/repos/mkyadav2021/mkyadav2021.github.io/commits/main')
+fetch('https://api.github.com/repos/mkyadav2021/portfolio-website/commits/main')
   .then(r => {
     if (!r.ok) throw new Error();
     return r.json();

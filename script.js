@@ -38,13 +38,24 @@ sections.forEach(s => observer.observe(s));
 
 // Last updated date from GitHub API
 fetch('https://api.github.com/repos/mkyadav2021/mkyadav2021.github.io/commits/main')
-  .then(r => r.json())
+  .then(r => {
+    if (!r.ok) throw new Error();
+    return r.json();
+  })
   .then(data => {
-    const date = new Date(data.commit.author.date);
-    const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const dateStr = data?.commit?.author?.date || data?.commit?.committer?.date;
+    if (!dateStr) throw new Error();
+    const formatted = new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('last-updated').textContent = 'Updated ' + formatted;
   })
-  .catch(() => {});
+  .catch(() => {
+    // fallback: use browser's last-modified header
+    const mod = document.lastModified;
+    if (mod) {
+      const formatted = new Date(mod).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      document.getElementById('last-updated').textContent = 'Updated ' + formatted;
+    }
+  });
 
 // Inject active link style dynamically
 const style = document.createElement('style');

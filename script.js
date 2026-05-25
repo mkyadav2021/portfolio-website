@@ -57,7 +57,3 @@ fetch('https://api.github.com/repos/mkyadav2021/portfolio-website/commits/main')
     }
   });
 
-// Inject active link style dynamically
-const style = document.createElement('style');
-style.textContent = '.nav-links a.active { color: var(--text); background: var(--surface); }';
-document.head.appendChild(style);

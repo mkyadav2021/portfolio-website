@@ -69,7 +69,7 @@ ul li { margin-bottom: 0.35rem; color: var(--muted); }
   transition: color 0.2s, background 0.2s;
 }
 
-.nav-links a:hover { color: var(--text); background: var(--surface); text-decoration: none; }
+.nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--surface); text-decoration: none; }
 
 
 .nav-socials {

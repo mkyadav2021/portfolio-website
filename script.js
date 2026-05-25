@@ -36,6 +36,16 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(s => observer.observe(s));
 
+// Last updated date from GitHub API
+fetch('https://api.github.com/repos/mkyadav2021/mkyadav2021.github.io/commits/main')
+  .then(r => r.json())
+  .then(data => {
+    const date = new Date(data.commit.author.date);
+    const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    document.getElementById('last-updated').textContent = 'Updated ' + formatted;
+  })
+  .catch(() => {});
+
 // Inject active link style dynamically
 const style = document.createElement('style');
 style.textContent = '.nav-links a.active { color: var(--text); background: var(--surface); }';

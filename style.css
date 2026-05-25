@@ -581,6 +581,17 @@ footer {
   border-top: 1px solid var(--border);
 }
 
+.footer-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.footer-stat { color: var(--muted); font-size: 0.8rem; }
+.footer-divider { color: var(--border); }
+
 /* ── Hamburger ────────────────────────────────────────────── */
 .nav-hamburger {
   display: none;
